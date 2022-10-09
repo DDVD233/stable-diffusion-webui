@@ -404,7 +404,9 @@ def create_toprow(is_img2img):
 
             with gr.Row():
                 with gr.Column(scale=8):
-                    negative_prompt = gr.Textbox(label="Negative prompt", elem_id="negative_prompt", show_label=False, placeholder="Negative prompt", lines=2)
+                    negative_prompt = gr.Textbox(label="Negative prompt", elem_id="negative_prompt",
+                                                 show_label=False, placeholder="Negative prompt", lines=2,
+                                                 value='lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry')
 
                 with gr.Column(scale=1, elem_id="style_neg_col"):
                     prompt_style2 = gr.Dropdown(label="Style 2", elem_id=f"{id_part}_style2_index", choices=[k for k, v in shared.prompt_styles.styles.items()], value=next(iter(shared.prompt_styles.styles.keys())), visible=len(shared.prompt_styles.styles) > 1)
@@ -1204,9 +1206,9 @@ def create_ui(wrap_gradio_gpu_call):
         (img2img_interface, "img2img", "img2img"),
         (extras_interface, "Extras", "extras"),
         (pnginfo_interface, "PNG Info", "pnginfo"),
-        (modelmerger_interface, "Checkpoint Merger", "modelmerger"),
-        (textual_inversion_interface, "Textual inversion", "ti"),
-        (settings_interface, "Settings", "settings"),
+        # (modelmerger_interface, "Checkpoint Merger", "modelmerger"),
+        # (textual_inversion_interface, "Textual inversion", "ti"),
+        # (settings_interface, "Settings", "settings"),
     ]
 
     with open(os.path.join(script_path, "style.css"), "r", encoding="utf8") as file:
