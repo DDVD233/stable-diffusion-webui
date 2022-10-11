@@ -64,8 +64,10 @@ def wrap_gradio_gpu_call(func, extra_outputs=None):
         shared.state.interrupted = False
         shared.state.textinfo = None
         print(args)
+        # for i, arg in enumerate(args):
+        #     print(i, arg)
         print(kwargs)
-
+        # if args[4] <= 50:
         with queue_lock:
             res = func(*args, **kwargs)
 
