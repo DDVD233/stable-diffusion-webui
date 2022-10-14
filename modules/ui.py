@@ -1363,7 +1363,7 @@ Requested path was: {f}
         (extras_interface, "Extras", "extras"),
         (pnginfo_interface, "PNG Info", "pnginfo"),
         # (modelmerger_interface, "Checkpoint Merger", "modelmerger"),
-        # (textual_inversion_interface, "Textual inversion", "ti"),
+        (textual_inversion_interface, "Textual inversion", "ti"),
         # (settings_interface, "Settings", "settings"),
     ]
 
