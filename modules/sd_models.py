@@ -154,7 +154,7 @@ def load_model_weights(model, checkpoint_info):
 
         vae_file = os.path.splitext(checkpoint_file)[0] + ".vae.pt"
 
-        if not os.path.exists(vae_file) and shared.cmd_opts.vae_path is not None:
+        if shared.cmd_opts.vae_path is not None:
             vae_file = shared.cmd_opts.vae_path
 
         if os.path.exists(vae_file):
