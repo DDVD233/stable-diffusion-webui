@@ -255,6 +255,7 @@ def train_embedding(embedding_name, learn_rate, data_root, log_directory, traini
         if embedding.step > 0 and embedding_dir is not None and embedding.step % save_embedding_every == 0:
             last_saved_file = os.path.join(embedding_dir, f'{embedding_name}-{embedding.step}.pt')
             embedding.save(last_saved_file)
+            embedding.save(filename)
 
         if embedding.step > 0 and images_dir is not None and embedding.step % create_image_every == 0:
             last_saved_image = os.path.join(images_dir, f'{embedding_name}-{embedding.step}.png')
@@ -269,6 +270,9 @@ def train_embedding(embedding_name, learn_rate, data_root, log_directory, traini
                 width=training_width,
                 do_not_save_grid=True,
                 do_not_save_samples=True,
+                negative_prompt='lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, '
+                                'fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, '
+                                'signature, watermark, username, blurry '
             )
 
             processed = processing.process_images(p)

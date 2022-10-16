@@ -53,6 +53,7 @@ class PersonalizedBase(Dataset):
                 continue
 
             text_filename = os.path.splitext(path)[0] + ".txt"
+            print(text_filename)
             filename = os.path.basename(path)
 
             if os.path.exists(text_filename):
@@ -76,6 +77,7 @@ class PersonalizedBase(Dataset):
 
             entry = DatasetEntry(filename=path, filename_text=filename_text, latent=init_latent)
 
+            entry.cond_text = self.create_text(filename_text)
             if include_cond:
                 entry.cond_text = self.create_text(filename_text)
                 entry.cond = cond_model([entry.cond_text]).to(devices.cpu)
